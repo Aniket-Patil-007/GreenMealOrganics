@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenMealOrganics - OTP Login Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #2e7d32;
+        }
+        
+        input[style*="display: none"] {
+            display: none !important;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        
+        button:hover:not(:disabled) {
+            background: #1b5e20;
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .info-box {
+            background: #f0f8f0;
+            border-left: 4px solid #2e7d32;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .success {
+            background: #e8f5e9;
+            border-left-color: #4caf50;
+            color: #2e7d32;
+        }
+        
+        .error {
+            background: #ffebee;
+            border-left-color: #f44336;
+            color: #c62828;
+        }
+        
+        .resend-link {
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .resend-link a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .resend-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .resend-link a:disabled {
+            color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .console-log {
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 20px;
+            line-height: 1.4;
+        }
+        
+        .log-line {
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌿 GreenMealOrganics</h1>
+        <p class="subtitle">OTP Login Test</p>
+        
+        <form id="loginForm" onsubmit="verifyOTP(event)">
+            <div class="form-group">
+                <label for="phoneInput">Mobile Number</label>
+                <input 
+                    id="phoneInput"
+                    type="tel" 
+                    placeholder="Enter 10-digit number" 
+                    pattern="[0-9]{10}" 
+                    maxlength="10"
+                    inputmode="numeric"
+                    required
+                />
+            </div>
+            
+            <div class="form-group">
+                <label for="otpInput" style="display:none;">OTP</label>
+                <input 
+                    id="otpInput"
+                    type="text" 
+                    placeholder="Enter 6-digit OTP"
+                    pattern="[0-9]{6}"
+                    maxlength="6"
+                    inputmode="numeric"
+                    style="display: none;"
+                />
+            </div>
+            
+            <button type="button" class="send-otp-btn" onclick="sendOTP()">Send OTP</button>
+            <button type="submit" class="btn" style="display: none;">Verify OTP</button>
+        </form>
+        
+        <div class="resend-link">
+            Didn't receive OTP? <a href="#" onclick="sendOTP(); return false;">Resend</a>
+        </div>
+        
+        <div id="message" class="info-box" style="display: none;"></div>
+        
+        <div class="console-log">
+            <div class="log-line">🟢 OTP System Ready</div>
+            <div class="log-line">📋 Logs will appear here...</div>
+            <div id="console" style="margin-top: 10px;"></div>
+        </div>
+    </div>
+
+    <script>
+        // ===== OTP Storage & Generation =====
+        const otpStore = {};
+        
+        function generateOTP() {
+            return Math.floor(100000 + Math.random() * 900000).toString();
+        }
+        
+        function log(message) {
+            const consoleDiv = document.getElementById('console');
+            const logLine = document.createElement('div');
+            logLine.className = 'log-line';
+            logLine.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            consoleDiv.appendChild(logLine);
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+            console.log(message);
+        }
+        
+        function showMessage(text, isSuccess = true) {
+            const msgBox = document.getElementById('message');
+            msgBox.textContent = text;
+            msgBox.className = isSuccess ? 'info-box success' : 'info-box error';
+            msgBox.style.display = 'block';
+        }
+        
+        function sendOTP() {
+            const phoneInput = document.getElementById('phoneInput');
+            const phoneNumber = phoneInput.value.trim();
+            
+            if (!phoneNumber || phoneNumber.length !== 10 || !/^\d{10}$/.test(phoneNumber)) {
+                showMessage('❌ Please enter a valid 10-digit number', false);
+                log('Invalid phone number attempted');
+                return;
+            }
+            
+            const sendBtn = document.querySelector('.send-otp-btn');
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Sending...';
+            
+            log(`📱 Sending OTP to +91${phoneNumber}...`);
+            
+            setTimeout(() => {
+                const otp = generateOTP();
+                
+                otpStore[phoneNumber] = {
+                    otp: otp,
+                    expiresAt: Date.now() + 5 * 60 * 1000
+                };
+                
+                log(`✅ OTP Generated: ${otp}`);
+                log(`🕐 OTP expires in 5 minutes`);
+                
+                showMessage(`✅ OTP Sent!\n🔐 OTP: ${otp}\n📱 Number: +91${phoneNumber}`, true);
+                
+                const phoneInput = document.getElementById('phoneInput');
+                const otpInput = document.getElementById('otpInput');
+                const resendLink = document.querySelector('.resend-link');
+                
+                phoneInput.style.display = 'none';
+                otpInput.style.display = 'block';
+                otpInput.focus();
+                sendBtn.style.display = 'none';
+                document.querySelector('.btn').style.display = 'block';
+                if (resendLink) resendLink.style.display = 'block';
+                
+                document.getElementById('loginForm').dataset.phoneNumber = phoneNumber;
+                startResendTimer();
+                
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Send OTP';
+            }, 1500);
+        }
+        
+        let resendTimer = 0;
+        function startResendTimer() {
+            resendTimer = 30;
+            const resendLink = document.querySelector('.resend-link a');
+            if (resendLink) {
+                resendLink.style.pointerEvents = 'none';
+                resendLink.style.opacity = '0.5';
+                resendLink.textContent = `Resend OTP in ${resendTimer}s`;
+                log('⏱️ Resend timer started (30s)');
+                
+                const interval = setInterval(() => {
+                    resendTimer--;
+                    if (resendTimer <= 0) {
+                        clearInterval(interval);
+                        resendLink.style.pointerEvents = 'auto';
+                        resendLink.style.opacity = '1';
+                        resendLink.textContent = 'Resend';
+                        log('✅ You can now resend OTP');
+                    } else {
+                        resendLink.textContent = `Resend OTP in ${resendTimer}s`;
+                    }
+                }, 1000);
+            }
+        }
+        
+        function verifyOTP(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('loginForm');
+            const phoneNumber = form.dataset.phoneNumber;
+            const otpInput = document.getElementById('otpInput');
+            const otp = otpInput.value.trim();
+            
+            if (!otp || otp.length !== 6 || !/^\d{6}$/.test(otp)) {
+                showMessage('❌ Please enter a valid 6-digit OTP', false);
+                log('Invalid OTP format attempted');
+                return;
+            }
+            
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Verifying...';
+            log(`🔍 Verifying OTP: ${otp}`);
+            
+            setTimeout(() => {
+                const storedData = otpStore[phoneNumber];
+                
+                if (!storedData) {
+                    showMessage('❌ OTP not found. Please request a new one.', false);
+                    log('OTP not found in store');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Verify OTP';
+                    return;
+                }
+                
+                if (Date.now() > storedData.expiresAt) {
+                    delete otpStore[phoneNumber];
+                    showMessage('❌ OTP expired. Please request a new one.', false);
+                    log('OTP has expired');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Verify OTP';
+                    return;
+                }
+                
+                if (storedData.otp !== otp) {
+                    showMessage('❌ Invalid OTP. Please try again.', false);
+                    log(`❌ OTP mismatch: Expected ${storedData.otp}, Got ${otp}`);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Verify OTP';
+                    return;
+                }
+                
+                // Success
+                delete otpStore[phoneNumber];
+                showMessage(`✅ Login Successful!\n👤 Number: +91${phoneNumber}`, true);
+                log(`✅ OTP verified successfully!`);
+                log(`🎉 User logged in: +91${phoneNumber}`);
+                
+                localStorage.setItem('userPhone', phoneNumber);
+                localStorage.setItem('loginTime', new Date().toISOString());
+                
+                setTimeout(() => {
+                    alert(`Welcome to GreenMealOrganics!\n+91${phoneNumber}\n\nYou can now close this window.`);
+                }, 500);
+            }, 800);
+        }
+        
+        log('🚀 Application initialized');
+    </script>
+</body>
+</html>

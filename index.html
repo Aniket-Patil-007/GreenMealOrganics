@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenMealOrganics</title>
+    <meta name="description" content="Natural & organic health and beauty products from GreenMealOrganics." />
+    <link rel="stylesheet" href="Style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-sVb5En6Zp0rHx/1PQc+QhLW6c7K7bn8E2eRINmb4Ry9pgJmHtd3Z4V7Dl4L9aYzKSc7RklSxL0+6N3j+8yN1Yw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-left">
+            <img class="logo" src="Img/Logo.jpeg" alt="GreenMealOrganics logo" loading="lazy" />
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+
+        <nav class="nav" aria-label="Main navigation">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-right">
+            <a class="login-btn" href="#" onclick="openPopup(); return false;">
+                <button>Login</button>
+            </a>
+            <div class="cart-btn">
+                <button id="cartBtn" onclick="openCart(); return false;">Cart (<span id="cartCount">0</span>)</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="slider" id="home" aria-label="Featured products">
+        <div class="slides-container">
+            <img src="Img/Argan, Biotin & Collagen Shampoo (200ml).jpeg" alt="Argan Shampoo" class="slide" />
+            <img src="Img/Glutathione Complexion Face Wash (100ml).jpeg" alt="Glutathione Face Wash" class="slide" />
+            <img src="Img/Glutathiohne Soap (100gm).jpeg" alt="Glutathione Soap" class="slide" />
+            <img src="Img/Pro Asta 7 (Astaxanthin 30 Cap).jpeg" alt="Pro Asta 7" class="slide" />
+            <img src="Img/Liposomal Glutathione (30 Veg Cap).jpeg" alt="Liposomal Glutathione" class="slide" />
+        </div>
+    </section>
+
+    <main>
+        <section class="product-comparison" id="products">
+            <h2>Best Sellers</h2>
+            <div class="product-grid">
+
+                <article class="product-card">
+                    <img src="Img/Argan, Biotin & Collagen Shampoo (200ml).jpeg" class="product-img" alt="Argan, Biotin & Collagen Shampoo (200ml)" loading="lazy" />
+                    <h3>Argan, Biotin & Collagen Shampoo (200ml)</h3>
+                    <p><strong>MRP:</strong> ₹799</p>
+                    <p><strong>Discount:</strong> 50%</p>
+                    <p><strong>Price:</strong> ₹399</p>
+                    <p><strong>Save upto:</strong> ₹400</p>
+                    <p class="ingredients" style="display:none;"></p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+                
+                
+
+                <article class="product-card">
+                    <img src="Img/Glutathione Complexion Face Wash (100ml).jpeg" class="product-img" alt="Glutathione Complexion Face Wash (100ml)" loading="lazy" />
+                    <h3>Glutathione Complexion Face Wash (100ml)</h3>
+                    <p><strong>MRP:</strong> ₹399</p>
+                    <p><strong>Discount:</strong> 33%</p>
+                    <p><strong>Price:</strong> ₹299</p>
+                    <p><strong>Save upto:</strong> ₹100</p>
+                    <p class="ingredients" style="display:none;">L-Glutathione, Organic Neem extract, Organic Mulethi extract, Organic Aloevera extract.</p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Glutathiohne Soap (100gm).jpeg" class="product-img" alt="Glutathiohne Soap (100gm)" loading="lazy" />
+                    <h3>Glutathiohne Soap (100gm)</h3>
+                    <p><strong>MRP:</strong> ₹349</p>
+                    <p><strong>Discount:</strong> 35%</p>
+                    <p><strong>Price:</strong> ₹226</p>
+                    <p><strong>Save upto:</strong> ₹123</p>
+                    <p class="ingredients" style="display:none;">Glutathione, Kojic Acid, Charcoal Powder, Mushroom Extract, Pea Extract, Aloevera Extract, Vitamin E, Soap noodles, Glycerine, Titanium dioxide, Perfume, EDTA, Iscaguard PEG, DM water, q.s.</p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Pro Asta 7 (Astaxanthin 30 Cap).jpeg" class="product-img" alt="Pro Asta 7 (Astaxanthin 30 Veg Cap)" loading="lazy" />
+                    <h3>Pro Asta 7 (Astaxanthin 30 Veg Cap)</h3>
+                    <p><strong>MRP:</strong> ₹1250</p>
+                    <p><strong>Discount:</strong> 50%</p>
+                    <p><strong>Price:</strong> ₹625</p>
+                    <p><strong>Save upto:</strong> ₹625</p>
+                    <p class="ingredients" style="display:none;">Docosahexaenoic acid 10%, Lutein 10%, AstaReal-Astaxanthin 4% powder, L-Glutathione reduced 98%</p>
+                    <p class="quantity" style="display:none;">150 mg, 7 mg, 7 mg, 7 mg</p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Liposomal Glutathione (30 Veg Cap).jpeg" class="product-img" alt="Liposomal Glutathione (30 Veg Cap)" loading="lazy" />
+                    <h3>Liposomal Glutathione (30 Veg Cap)</h3>
+                    <p><strong>MRP:</strong> ₹1499</p>
+                    <p><strong>Discount:</strong> 43%</p>
+                    <p><strong>Price:</strong> ₹854</p>
+                    <p><strong>Save upto:</strong> ₹645</p>
+                    <p class="ingredients" style="display:none;"></p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Bonrefix (60 Tab).jpeg" class="product-img" alt="Bonrefix (60 Tab)" loading="lazy" />
+                    <h3>Bonrefix (60 Tab)</h3>
+                    <p><strong>MRP:</strong> ₹795</p>
+                    <p><strong>Discount:</strong> 50%</p>
+                    <p><strong>Price:</strong> ₹397</p>
+                    <p><strong>Save upto:</strong> ₹398</p>
+                    <p class="ingredients" style="display:none;"></p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Omega Flexseed (60 Softgel Cap).jpeg" class="product-img" alt="Omega Flexseed (60 Softgel Cap)" loading="lazy" />
+                    <h3>Omega Flexseed (60 Softgel Cap)</h3>
+                        <p><strong>MRP:</strong> ₹999</p>
+                        <p><strong>Discount:</strong> 40%</p>
+                        <p><strong>Price:</strong> ₹599</p>
+                        <p><strong>Save upto:</strong> ₹400</p>
+                        <p class="ingredients" style="display:none;">Flexseed Oil</p>
+                        <p class="quantity" style="display:none;">100mg</p>
+                        <button class="btn">View Product</button>
+                    </article>
+
+                <article class="product-card">
+                    <img src="Img/Rice Water Facial Kit.jpeg" class="product-img" alt="Rice Water Facial Kit" loading="lazy" />
+                    <h3>Rice Water Facial Kit</h3>
+                    <p><strong>MRP:</strong> ₹1250</p>
+                    <p><strong>Discount:</strong> 20%</p>
+                    <p><strong>Price:</strong> ₹1000</p>
+                    <p><strong>Save upto:</strong> ₹250</p>
+                    <p class="ingredients" style="display:none;">Rice Water Facial Kit,Face Cleanser ,Scrub , Massage Cream ,Peel Of Mask,D Tan Pack ,Hydrating Serum</p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Red Onion Shampoo (250ml).jpeg" class="product-img" alt="Red Onion Shampoo (250ml)" loading="lazy" />
+                    <h3>Red Onion Shampoo (250ml)</h3>
+                    <p><strong>MRP:</strong> ₹349</p>
+                    <p><strong>Discount:</strong> 15%</p>
+                    <p><strong>Price:</strong> ₹297</p>
+                    <p><strong>Save upto:</strong> ₹52</p>
+                    <p class="ingredients" style="display:none;"></p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Glofine Advance Powder (240gm).jpeg" class="product-img" alt="Glofine Advance Powder (240gm)" loading="lazy" />
+                    <h3>Glofine Advance Powder (240gm)</h3>
+                    <p><strong>MRP:</strong> ₹2165</p>
+                    <p><strong>Discount:</strong> 35%</p>
+                    <p><strong>Price:</strong> ₹1407</p>
+                    <p><strong>Save upto:</strong> ₹758</p>
+                    <p class="ingredients" style="display:none;"></p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Glofine Advance Tablet (30 Tab).jpeg" class="product-img" alt="Glofine Advance Tablet (30 Tab)" loading="lazy" />
+                    <h3>Glofine Advance Tablet (30 Tab)</h3>
+                    <p><strong>MRP:</strong> ₹1990</p>
+                    <p><strong>Discount:</strong> 40%</p>
+                    <p><strong>Price:</strong> ₹1194</p>
+                    <p><strong>Save upto:</strong> ₹796</p>
+                    <p class="ingredients" style="display:none;">Astaxanthin, L-Glutathione, N-Acetyl L-Cysteine, Vitamin C (L-Ascorbic Acid) 50%, Phyllanthus Emblica L-Extract (Amla), Zinc Sulphate, Eq. to Elemental Zinc 59%</p>
+                    <p class="quantity" style="display:none;">6mg, 500mg, 50mg, 90mg, 1000mg, 10mg, 10mg</p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Liver Support (60 Veg Cap).jpeg" class="product-img" alt="Liver Support (60 Veg Cap)" loading="lazy" />
+                    <h3>Liver Support (60 Veg Cap)</h3>
+                    <p><strong>MRP:</strong> ₹1499</p>
+                    <p><strong>Discount:</strong> 45%</p>
+                    <p><strong>Price:</strong> ₹825</p>
+                    <p><strong>Save upto:</strong> ₹674</p>
+                    <p class="ingredients" style="display:none;">Milk Thistle, Turmeric, Dandelion Roots, Spirulina, Mint Leaves, Beetroot, Drumstick, Spinach leaves, Chlorella, Green Tea Leaves, Ginger, Radish, Cauliflower</p>
+                    <p class="quantity" style="display:none;">250mg, 104mg, 104mg, 76mg, 76mg, 66mg, 66mg, 60mg, 44mg, 44mg, 40mg, 40mg, 30mg</p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Aura Care Tablet (100 Tab).jpeg" class="product-img" alt="Aura Care Tablet (100 Tab)" loading="lazy" />
+                    <h3>Aura Care Tablet (100 Tab)</h3>
+                    <p><strong>MRP:</strong> ₹2050</p>
+                    <p><strong>Discount:</strong> 50%</p>
+                    <p><strong>Price:</strong> ₹1025</p>
+                    <p><strong>Save upto:</strong> ₹1025</p>
+                    <p class="ingredients" style="display:none;"></p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Super Viagra 440 (50 Tab).jpeg" class="product-img" alt="Super Viagra 440 (50 Tab)" loading="lazy" />
+                    <h3>Super Viagra 440 (50 Tab)</h3>
+                    <p><strong>MRP:</strong> ₹1200</p>
+                    <p><strong>Discount:</strong> 50%</p>
+                    <p><strong>Price:</strong> ₹600</p>
+                    <p><strong>Save upto:</strong> ₹600</p>
+                    <p class="ingredients" style="display:none;"></p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Glutathione Facial Kit.jpeg" class="product-img" alt="Glutathione Facial Kit" loading="lazy" />
+                    <h3>Glutathione Facial Kit</h3>
+                    <p><strong>MRP:</strong> ₹999</p>
+                    <p><strong>Discount:</strong> 20%</p>
+                    <p><strong>Price:</strong> ₹799</p>
+                    <p><strong>Save upto:</strong> ₹200</p>
+                    <p class="ingredients" style="display:none;"></p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Marine Collagen Powder (210gm).jpeg" class="product-img" alt="Marine Collagen Powder (210gm)" loading="lazy" />
+                    <h3>Marine Collagen Powder (210gm)</h3>
+                    <p><strong>MRP:</strong> ₹1599</p>
+                    <p><strong>Discount:</strong> 40%</p>
+                    <p><strong>Price:</strong> ₹959</p>
+                    <p><strong>Save upto:</strong> ₹640</p>
+                    <p class="ingredients" style="display:none;">Marin Hydrolyzed Collagen Peptide, Hyaluronic Acid, Vitamin C, Zinc, Biotin, Sodium</p>
+                    <p class="quantity" style="display:none;">71.43mg, 714.28mg, 357.14mg, 85.71mg, 214.28mg, 928.57mg</p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Digestive Support (60 Veg Cap).jpeg" class="product-img" alt="Digestive Support (60 Veg Cap)" loading="lazy" />
+                    <h3>Digestive Support (60 Veg Cap)</h3>
+                    <p><strong>MRP:</strong> ₹749</p>
+                    <p><strong>Discount:</strong> 40%</p>
+                    <p><strong>Price:</strong> ₹449</p>
+                    <p><strong>Save upto:</strong> ₹300</p>
+                    <p class="ingredients" style="display:none;">Cassia Leaves, Green Amla, Green Ginger, Mint Leaves, Thyme Leaves, Spirulina, Celery Leaves, Rosemary Leaves, Cinnamon, Artichoke Leaves, Dill Seed, Dandelion Root, Chlorella, Black Pepper</p>
+                    <p class="quantity" style="display:none;">80mg, 80mg, 80mg, 80mg, 80mg, 70mg, 70mg, 70mg, 70mg, 70mg, 70mg, 60mg, 60mg, 60mg</p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/GLYCOLIC PEEL 50%.JPG" class="product-img" alt="Glycolic Peel 50%" loading="lazy" />
+                    <h3>Glycolic Peel 50% (30ml)</h3>
+                    <p><strong>MRP:</strong> ₹1850</p>
+                    <p><strong>Discount:</strong> 46%</p>
+                    <p><strong>Price:</strong> ₹1000</p>
+                    <p><strong>Save upto:</strong> ₹850</p>
+                    <p class="ingredients" style="display:none;"></p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Evo Rediant Glutathione .JPG" class="product-img" alt="Evo Radiant Gluta Foaming Facewash" loading="lazy" />
+                    <h3>Evo Radiant Gluta Foaming Facewash (150ml)</h3>
+                    <p><strong>MRP:</strong> ₹449</p>
+                    <p><strong>Discount:</strong> 10%</p>
+                    <p><strong>Price:</strong> ₹404</p>
+                    <p><strong>Save upto:</strong> ₹45</p>
+                    <p class="ingredients" style="display:none;"></p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Evo - c.JPG" class="product-img" alt="Evo Vitamin C Foaming Facewash" loading="lazy" />
+                    <h3>Evo Vitamin C Foaming Facewash (150ml)</h3>
+                    <p><strong>MRP:</strong> ₹449</p>
+                    <p><strong>Discount:</strong> 10%</p>
+                    <p><strong>Price:</strong> ₹404</p>
+                    <p><strong>Save upto:</strong> ₹45</p>
+                    <p class="ingredients" style="display:none;">Purified Water, Sodium Lauroyl Sarcosinate, Cocamidopropyl Betaine, DMDM Hydantoin, Methylchloroisothiazolinone, Methylisothiazolinone, Polyquaternium-7, Glycolic Acid, Cocodiethanolamide, Salicylic Acid, Ethyl Ascorbic Acid, Decyl Glucoside, Coco Glucoside, Fragrance</p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Evo Salixis pro.JPG" class="product-img" alt="Evo Salixis Pro Foaming Facewash" loading="lazy" />
+                    <h3>Evo Salixis Pro Foaming Facewash (150ml)</h3>
+                    <p><strong>MRP:</strong> ₹449</p>
+                    <p><strong>Discount:</strong> 10%</p>
+                    <p><strong>Price:</strong> ₹404</p>
+                    <p><strong>Save upto:</strong> ₹45</p>
+                    <p class="ingredients" style="display:none;">Purified Water, Sodium Lauryl Ether Sulfate, Cocamidopropyl Betaine, DMDM Hydantoin, Methylchloroisothiazolinone, Methylisothiazolinone, Polyquaternium-7, Glycolic Acid, Salicylic Acid, Propylene Glycol, Aloevera Extract, Cocodiethanolamide, Fragrance</p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+                
+                <article class="product-card">
+                    <img src="Img/Olnature's Silicon Sunscreen.jpg" class="product-img" alt="OLnature's Silicon Sunscreen" loading="lazy" />
+                    <h3>OLnature's Silicon Sunscreen (50ml)</h3>
+                    <p><strong>MRP:</strong> ₹980</p>
+                    <p><strong>Discount:</strong> 20%</p>
+                    <p><strong>Price:</strong> ₹784</p>
+                    <p><strong>Save upto:</strong> ₹196</p>
+                    <p class="ingredients" style="display:none;">Cyclopentasiloxane (and) Dimethicone/Vinyl Dimethicone Crosspolymer, Octyl Methoxy Cinnamate, Zinc Oxide, Octyl Salicylate, Cyclopentasiloxane, Di-caprylyl Carbonate, Diethylamino Hydroxybenzoyl Hexyl Benzoate, Octocrylene, PEG-12 Dimethicone/PPG-20 Crosspolymer, Dimethicone, Diethylhexyl Butamido Triazone, Titanium Dioxide, Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine, Silica, Tocopheryl Acetate, Perfume, Ascorbyl Palmitate</p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Biodose Hyaluronic Acid.jpg" class="product-img" alt="Korean Hyadra Bar 5X" loading="lazy" />
+                    <h3>Korean Hyadra Bar 5X (30ml)</h3>
+                    <p><strong>MRP:</strong> ₹999</p>
+                    <p><strong>Discount:</strong> 20%</p>
+                    <p><strong>Price:</strong> ₹799</p>
+                    <p><strong>Save upto:</strong> ₹200</p>
+                    <p class="ingredients" style="display:none;">Purified Water, Niacinamide, Hyaluronic Acid, Aloe Vera Extract, Polysorbate 20, Glycerin, Vitamin B5, Sodium PCA, Betaine, Centella Asiatica Extract, Ceramide NP, Ethylhexylglycerin, Allantoin, Citric Acid, Sodium Gluconate</p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Evolex Face And Body Moisturizer (300ml).jpg" class="product-img" alt="Evolex Face And Body Moisturizer (300ml)" loading="lazy" />
+                    <h3>Evolex Face And Body Moisturizer (300ml)</h3>
+                    <p><strong>MRP:</strong> ₹590</p>
+                    <p><strong>Discount:</strong> 20%</p>
+                    <p><strong>Price:</strong> ₹472</p>
+                    <p><strong>Save upto:</strong> ₹118</p>
+                    <p class="ingredients" style="display:none;"></p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/Evo Flow Lex Body Wash (300ml).jpg" class="product-img" alt="Evo Flow Lex Body Wash (300ml)" loading="lazy" />
+                    <h3>Evo Glow Lex Body Wash (300ml)</h3>
+                    <p><strong>MRP:</strong> ₹499</p>
+                    <p><strong>Discount:</strong> 20%</p>
+                    <p><strong>Price:</strong> ₹399</p>
+                    <p><strong>Save upto:</strong> ₹100</p>
+                    <p class="ingredients" style="display:none;">Purified Water, Sodium Lauryl Ether Sulfate, Cocamidopropyl Betaine, Coco Glucoside, Ethylenediaminetetraacetic Acid, Niacinamide, Salicylic Acid, Hyaluronic Acid, Acrylates Copolymer, Glycerine, DMDM Hydantoin, Sodium Hydroxide, Menthol, Propylene Glycol, Fragrance</p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="Img/OLnatures  Gluta cream Face Wash.jpeg" class="product-img" alt="OLnatures  Gluta cream Face Wash" loading="lazy" />
+                    <h3>OLnatures  Gluta cream Face Wash</h3>
+                    <p><strong>MRP:</strong> ₹250</p>
+                    <p><strong>Discount:</strong> 20%</p>
+                    <p><strong>Price:</strong> ₹200</p>
+                    <p><strong>Save upto:</strong> ₹50</p>
+                    <p class="ingredients" style="display:none;">Aqua, Glycerine, Stearic Acid, Myristic Acid, Palmitic Acid, Potassium Hydroxide, Aloevera Juice, Lauric Acid, Niacinamide, Kojic Acid Dipalmitate, Glutathione, Sodium Hyaluronate, Betaine, Ethylhexylglycol Distearate, Phenoxyethanol, Hydroxyethyl Cellulose, Perfume, Disodium EDTA</p>
+                    <p class="quantity" style="display:none;"></p>
+                    <button class="btn">View Product</button>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>About GreenMealOrganics</h4>
+                <p>We provide natural, organic, and wellness products for a healthier lifestyle. Our mission is to bring you closer to nature with premium-quality care.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>📞 +91 8999836247</p>
+                <p>📧 <a href="mailto:care@greenmealorganics.com" class="footer-link">care@greenmealorganics.com</a></p>
+                <p>📍 Pune, Maharashtra, India</p>
+                <div class="social-icons">
+                    <a class="social" href="https://facebook.com" target="_blank" rel="noopener">
+                        <img src="Img/Facebook_logo.png" alt="Facebook" class="social-img" onload="this.style.display='inline-block'; this.nextElementSibling && (this.nextElementSibling.style.display='none');" onerror="this.style.display='none'" />
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a class="social" href="https://www.instagram.com/greenmealorganics?igsh=MTZ5YmUzemExYnR0cQ==" target="https://www.instagram.com/greenmealorganics?igsh=MTZ5YmUzemExYnR0cQ==" rel="noopener">
+                        <img src="Img/INSTAGRAM.jpg" alt="Instagram" class="social-img" onload="this.style.display='inline-block'; this.nextElementSibling && (this.nextElementSibling.style.display='none');" onerror="this.style.display='none'" />
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a class="social" href="https://www.youtube.com/@greenmealorganics" target="https://www.youtube.com/@greenmealorganics" rel="noopener">
+                        <img src="Img/Youtube_logo.png" alt="YouTube" class="social-img" onload="this.style.display='inline-block'; this.nextElementSibling && (this.nextElementSibling.style.display='none');" onerror="this.style.display='none'" />
+                        <i class="fab fa-youtube" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>  
+        <div class="footer-bottom">
+            <p>&copy; 2025 GreenMealOrganics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="loginPopup" class="popup-overlay" aria-hidden="true">
+        <div class="popup-content" role="dialog" aria-modal="true" aria-label="Login dialog">
+            <button class="close-btn" aria-label="Close login" onclick="closePopup()">&times;</button>
+            <h2>Login with mobile</h2>
+            <form id="loginForm" onsubmit="verifyOTP(event)">
+                <input type="tel" placeholder="Enter Mobile Number" pattern="[0-9]{10}" inputmode="numeric" maxlength="10" required />
+                <input type="text" placeholder="Enter OTP" pattern="[0-9]{6}" inputmode="numeric" maxlength="6" style="display:none;" required />
+                <button type="button" class="send-otp-btn" onclick="sendOTP()">Send OTP</button>
+                <button type="submit" class="btn" style="display:none;">Login</button>
+            </form>
+            <p class="small resend-link" style="display:none;">Didn't receive OTP? <a href="#" onclick="sendOTP(); return false;">Resend</a></p>
+        </div>
+    </div>
+
+    <!-- Cart Popup -->
+    <div id="cartPopup" class="popup-overlay" aria-hidden="true">
+        <div class="popup-content cart-popup" role="dialog" aria-modal="true" aria-label="Cart dialog">
+            <button class="close-btn" aria-label="Close cart" onclick="closeCart()">&times;</button>
+            <h2>Your Cart</h2>
+            <div id="cartItemsWrap">
+                <table id="cartTable">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th>MRP</th>
+                            <th>Save</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartTbody"></tbody>
+                </table>
+            </div>
+            <div class="cart-summary">
+                <p><strong>Total MRP:</strong> <span id="cartTotalMRP">₹0</span></p>
+                <p><strong>Total Discounted Price:</strong> <span id="cartTotalPrice">₹0</span></p>
+                <p><strong>Total Saved:</strong> <span id="cartTotalSave">₹0</span></p>
+                <button id="checkoutBtn" class="btn" onclick="checkout()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Popup -->
+    <div id="productPopup" class="popup-overlay" aria-hidden="true">
+        <div class="popup-content" role="dialog" aria-modal="true" aria-label="Product details">
+            <button class="product-close-btn close-btn" aria-label="Close product details">&times;</button>
+            <div class="product-popup-body">
+                <div class="product-popup-image">
+                    <img src="" alt="Product image" id="popupImage" />
+                </div>
+                <div class="product-popup-info">
+                    <h2 id="popupTitle"></h2>
+                    <p id="popupMRP"></p>
+                    <p id="popupDiscount"></p>
+                    <p id="popupPrice"></p>
+                    <p id="popupSave"></p>
+                    <div class="product-details-grid">
+                        <div class="product-details-col">
+                            <h4>Ingredients</h4>
+                            <p id="popupIngredients"></p>
+                        </div>
+                        <div class="product-details-col">
+                            <h4>Quantity</h4>
+                            <p id="popupQuantity"></p>
+                        </div>
+                    </div>
+                    <!-- 2x3 table: 2 columns (Ingredients / Quantity) and 3 rows -->
+                    <div class="product-details-table-wrap">
+                        <table id="popupTable" aria-label="Ingredients and quantities">
+                            <thead>
+                                <tr>
+                                    <th>Ingredients</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="tab-ing"></td><td class="tab-qty"></td></tr>
+                                <tr><td class="tab-ing"></td><td class="tab-qty"></td></tr>
+                                <tr><td class="tab-ing"></td><td class="tab-qty"></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id="popupCloseBtn" class="btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Script.js"></script>
+</body>
+</html>
